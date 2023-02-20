@@ -49,25 +49,25 @@ console.log(
           {
             type: "input",
             name: "managerName",
-            message: "What is the manager's name?"
+            message: "Enter the manager's name"
           },
       
           {
             type: "input",
             name: "managerId",
-            message: "What is the manager's employee ID number?"
+            message: "Enter the manager's employee ID number"
           },
       
           {
             type: "input",
             name: "managerEmail",
-            message: "What is the manager's email address?"
+            message: "Enter the manager's email address"
           },
       
           {
             type: "input",
             name: "managerOfficeNumber",
-            message: "What is the manager's office number?"
+            message: "Enter the manager's office number"
           }
       
         ]).then(answers => {
@@ -83,25 +83,25 @@ console.log(
       {
         type: "input",
         name: "engineerName",
-        message: "What is the engineer's name?"
+        message: "Enter the engineer's name"
       },
 
       {
         type: "input",
         name: "engineerId",
-        message: "What is the engineer's employee ID number?" 
+        message: "Enter the engineer's employee ID number" 
       },
 
       {
         type: "input",
         name: "engineerEmail",
-        message: "What is the engineer's email address?"
+        message: "Enter the engineer's email address"
       },
 
       {
         type: "input",
         name: "engineerGithub",
-        message: "What is the engineer's GitHub username?"
+        message: "Enter the engineer's GitHub username"
       }
 
     ]).then(answers => {
@@ -111,3 +111,47 @@ console.log(
     });
 
   }
+  function addIntern() {
+    inquirer.prompt([
+      
+      {
+        type: "input",
+        name: "internName",
+        message: "Enter the intern's name"
+      },
+
+      {
+        type: "input",
+        name: "internId",
+        message: "Enter the intern's employee ID number" 
+      },
+
+      {
+        type: "input",
+        name: "internEmail",
+        message: "Enter the intern's email address"
+      },
+
+      {
+        type: "input",
+        name: "internSchool",
+        message: "What school does the intern attend?"
+      }
+
+    ]).then(answers => {
+      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      teamArray.push(intern);
+      createTeam();
+    });
+
+  }
+  function htmlBuilder () {
+    console.log("Team Created")
+
+    fs.writeFileSync(outputPath, generateTeam(teamArray), "UTF-8")
+
+}
+
+createTeam();
+
+runApp();
