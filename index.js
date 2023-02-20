@@ -12,3 +12,7 @@ const render = require('./src/page-template.js');
 
 const teamMembers = [];
 const idArray = [];
+
+console.log(
+    '\nUse `npm run reset` to reset the dist/ folder\n'
+  );
