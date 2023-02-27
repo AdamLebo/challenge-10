@@ -2,7 +2,7 @@ const Employee = require("../workers/employee");
 
 describe("Employee class", () => {
   describe("getName", () => {
-    it("returns Bob", () => {
+    it("returns John", () => {
       expect(new Employee("John", "1", "John@gmail").getName()).toBe("John");
     });
   });
